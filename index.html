@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abby's Tree Services - Professional Tree Care Sydney & Wollongong</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("GaACI_aXO1IbouArB");
+        })();
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            /* Professional Color Palette */
+            --primary-green: #2ECC71;
+            --dark-green: #27AE60;
+            --light-green: #A8E6CF;
+            --gold: #F39C12;
+            --dark-gold: #D68910;
+            --emergency-red: #E74C3C;
+            --dark-red: #C0392B;
+            --pure-white: #FFFFFF;
+            --off-white: #F8F9FA;
+            --light-gray: #BDC3C7;
+            --dark-gray: #2C3E50;
+            --black: #1A1A1A;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            color: var(--dark-gray);
+            background: var(--black);
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        @media (min-aspect-ratio: 16/9) {
+            .video-iframe {
+                height: 56.25vw;
+            }
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            .video-iframe {
+                width: 177.78vh;
+            }
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(26, 26, 26, 0.9) 0%, 
+                rgba(46, 204, 113, 0.7) 50%, 
+                rgba(26, 26, 26, 0.9) 100%);
+            z-index: 1;
+        }
+
+        /* Animated Chainsaw Effect */
+        .chainsaw-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .chainsaw-svg {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            animation: moveChainsawDesktop 20s linear infinite;
+        }
+
+        @keyframes moveChainsawDesktop {
+            0% {
+                left: -200px;
+                top: 60%;
+            }
+            50% {
+                left: 50%;
+                top: 40%;
+            }
+            100% {
+                left: calc(100% + 200px);
+                top: 60%;
+            }
+        }
+
+        @keyframes moveChainsawMobile {
+            0% {
+                left: -100px;
+                top: 70%;
+                transform: scale(0.5);
+            }
+            100% {
+                left: calc(100% + 100px);
+                top: 70%;
+                transform: scale(0.5);
+            }
+        }
+
+        .sawdust {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: fall 8s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Emergency Bar - Responsive */
+        .emergency-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(90deg, var(--emergency-red), var(--dark-red));
+            color: white;
+            padding: 10px;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: clamp(12px, 2vw, 16px);
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .emergency-bar .blink {
+            animation: blink 1s linear infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        .call-btn {
+            background: white;
+            color: var(--emergency-red);
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: transform 0.3s;
+            font-size: clamp(12px, 2vw, 14px);
+        }
+
+        .call-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Navigation - Responsive */
+        .navbar {
+            position: fixed;
+            top: 50px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1999;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(18px, 2.5vw, 24px);
+            font-weight: bold;
+            color: var(--dark-green);
+        }
+
+        .logo-icon {
+            width: clamp(35px, 5vw, 45px);
+            height: clamp(35px, 5vw, 45px);
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .desktop-nav a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--primary-green);
+        }
+
+        .desktop-nav .nav-cta {
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+        }
+
+        .desktop-nav .nav-cta:hover {
+            transform: scale(1.05);
+        }
+
+        /* Mobile Menu Button */
+        .menu-btn {
+            background: var(--primary-green);
+            border: none;
+            padding: 8px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 115px;
+            left: 0;
+            width: 100%;
+            background: white;
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            z-index: 1998;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 15px 20px;
+            color: var(--dark-gray);
+            text-decoration: none;
+            border-bottom: 1px solid var(--off-white);
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            background: var(--light-green);
+        }
+
+        /* Main Content */
+        main {
+            position: relative;
+            z-index: 1;
+            padding-top: 115px;
+        }
+
+        /* Container for responsive width */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section - Responsive */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+        }
+
+        .special-offer {
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+            font-size: clamp(14px, 2vw, 18px);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .trust-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .trust-item {
+            background: var(--off-white);
+            padding: 15px;
+            border-radius: 12px;
+            border: 2px solid var(--light-green);
+        }
+
+        .trust-item strong {
+            display: block;
+            color: var(--dark-green);
+            font-size: clamp(16px, 2vw, 20px);
+            margin-bottom: 5px;
+        }
+
+        .trust-item span {
+            font-size: clamp(12px, 1.5vw, 14px);
+            color: var(--dark-gray);
+        }
+
+        .cta-container {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            padding: 18px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: clamp(16px, 2vw, 18px);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+            transition: transform 0.3s;
+            min-width: 250px;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark-green);
+            padding: 18px 40px;
+            border: 2px solid var(--primary-green);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: clamp(16px, 2vw, 18px);
+            display: inline-block;
+            text-align: center;
+            transition: all 0.3s;
+            min-width: 250px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-green);
+        }
+
+        /* Services Section - Responsive */
+        .services {
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            color: var(--dark-green);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            font-size: clamp(14px, 2vw, 18px);
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary-green);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .service-icon {
+            font-size: 36px;
+        }
+
+        .service-info h3 {
+            color: var(--dark-green);
+            font-size: clamp(18px, 2.5vw, 22px);
+            margin-bottom: 5px;
+        }
+
+        .service-price {
+            background: var(--gold);
+            color: white;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .service-description {
+            color: var(--dark-gray);
+            font-size: 15px;
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            color: var(--dark-gray);
+            font-size: 14px;
+            padding: 5px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .service-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 0;
+            background: var(--off-white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: clamp(32px, 4vw, 42px);
+            color: var(--primary-green);
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: clamp(14px, 1.8vw, 16px);
+            color: var(--dark-gray);
+            margin-top: 8px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--off-white);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 3px solid var(--gold);
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateX(5px);
+        }
+
+        .stars {
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .testimonial-text {
+            color: var(--dark-gray);
+            font-style: italic;
+            font-size: 15px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            color: var(--dark-green);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 60px 0;
+            background: var(--off-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--dark-green);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #E8F5E9;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s;
+            background: var(--off-white);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+        }
+
+        .contact-info {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            border-radius: 15px;
+            color: white;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .contact-item i {
+            font-size: 20px;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 50px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-green);
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            padding: 8px 0;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #34495E;
+            font-size: 14px;
+            color: var(--light-gray);
+        }
+
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+            font-size: 24px;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+        }
+
+        .fab-call {
+            background: var(--emergency-red);
+            color: white;
+            animation: ring 2s ease-in-out infinite;
+        }
+
+        @keyframes ring {
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30% { transform: rotate(-10deg); }
+            20%, 40% { transform: rotate(10deg); }
+        }
+
+        .fab-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .fab-top {
+            background: var(--dark-green);
+            color: white;
+            display: none;
+        }
+
+        .fab-top.show {
+            display: flex;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .menu-btn {
+                display: none;
+            }
+
+            .desktop-nav {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+
+            .cta-container {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .chainsaw-svg {
+                width: 300px;
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .chainsaw-svg {
+                animation: moveChainsawMobile 15s linear infinite;
+            }
+
+            .emergency-bar {
+                padding: 8px 10px;
+                gap: 10px;
+            }
+
+            .fab-container {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .fab {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding-bottom: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .trust-points {
+                grid-template-columns: 1fr;
+            }
+
+            .service-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Bottom CTA for mobile only */
+        @media (max-width: 767px) {
+            .bottom-cta {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, var(--emergency-red), var(--dark-red));
+                padding: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                z-index: 1500;
+                box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+            }
+
+            .bottom-cta-text {
+                color: white;
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .bottom-cta-btn {
+                background: white;
+                color: var(--emergency-red);
+                padding: 8px 20px;
+                border-radius: 25px;
+                text-decoration: none;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                animation: pulse 1.5s infinite;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .bottom-cta {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background with Chainsaw Animation -->
+    <div class="video-background">
+        <!-- YouTube Video Embed (Stihl Chainsaw Compilation) -->
+        <iframe class="video-iframe" 
+                src="https://www.youtube.com/embed/LIjC7DjoVe8?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=LIjC7DjoVe8" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+        </iframe>
+        
+        <!-- Animated Chainsaw Overlay -->
+        <div class="chainsaw-animation">
+            <svg class="chainsaw-svg" viewBox="0 0 300 150">
+                <!-- Chainsaw Body -->
+                <rect x="20" y="60" width="180" height="30" fill="#FF6B35" stroke="#333" stroke-width="2"/>
+                <!-- Chainsaw Blade -->
+                <rect x="180" y="65" width="100" height="20" fill="#C0C0C0" stroke="#333" stroke-width="2"/>
+                <!-- Chainsaw Teeth -->
+                <path d="M180 85 L280 85" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+                <!-- Handle -->
+                <rect x="40" y="40" width="60" height="20" rx="10" fill="#333"/>
+                <rect x="60" y="20" width="20" height="40" rx="10" fill="#333"/>
+                <!-- Stihl Logo Area -->
+                <text x="100" y="78" fill="white" font-family="Arial" font-size="14" font-weight="bold">STIHL</text>
+            </svg>
+            <div id="sawdust-container"></div>
+        </div>
+        
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Emergency Bar -->
+    <div class="emergency-bar">
+        <span class="blink">🚨</span>
+        <span>24/7 EMERGENCY SERVICE</span>
+        <a href="tel:0431906191" class="call-btn">
+            📞 0431 906 191
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 50 50">
+                    <circle cx="25" cy="25" r="23" fill="#2ECC71"/>
+                    <path d="M20 25 L30 25 M25 20 L25 30" stroke="white" stroke-width="3"/>
+                    <circle cx="25" cy="15" r="8" fill="#27AE60"/>
+                    <circle cx="18" cy="18" r="6" fill="#27AE60"/>
+                    <circle cx="32" cy="18" r="6" fill="#27AE60"/>
+                </svg>
+                <span>Abby's Tree Services</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#contact">Contact</a>
+                <a href="tel:0431906191" class="nav-cta">📞 Get Quote</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="menu-btn" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#services" onclick="closeMenu()">Services</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#testimonials" onclick="closeMenu()">Reviews</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+        <a href="tel:0431906191" style="background: #E8F5E9;">📞 Call Now: 0431 906 191</a>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Professional Tree Services Sydney & Wollongong</h1>
+                    <p class="hero-subtitle">Certified Arborists • Fully Insured • 24/7 Emergency Response</p>
+                    
+                    <div class="special-offer">
+                        🎯 LIMITED OFFER: 20% OFF First Service + FREE Quote
+                    </div>
+
+                    <div class="trust-points">
+                        <div class="trust-item">
+                            <strong>⚡ 30min</strong>
+                            <span>Emergency Response</span>
+                        </div>
+                        <div class="trust-item">
+                            <strong>⭐ 4.9/5</strong>
+                            <span>500+ Google Reviews</span>
+                        </div>
+                        <div class="trust-item">
+                            <strong>💰 Beat Any Quote</strong>
+                            <span>By 10% Guaranteed</span>
+                        </div>
+                        <div class="trust-item">
+                            <strong>🛡️ $20M</strong>
+                            <span>Public Liability</span>
+                        </div>
+                    </div>
+
+                    <div class="cta-container">
+                        <a href="tel:0431906191" class="btn-primary">
+                            📞 Call Now: 0431 906 191
+                        </a>
+                        <a href="#contact" class="btn-secondary">
+                            Get Free Quote Online
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Professional Services</h2>
+                    <p>Expert tree care using professional Stihl equipment</p>
+                </div>
+
+                <div class="service-cards">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span class="service-icon">🌳</span>
+                            <div class="service-info">
+                                <h3>Tree Removal</h3>
+                                <span class="service-price">From $299</span>
+                            </div>
+                        </div>
+                        <p class="service-description">Safe & efficient removal of dangerous or unwanted trees using professional equipment</p>
+                        <ul class="service-features">
+                            <li>24/7 Emergency removal</li>
+                            <li>Council permit assistance</li>
+                            <li>Crane & elevated platform</li>
+                            <li>Complete site cleanup</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span class="service-icon">✂️</span>
+                            <div class="service-info">
+                                <h3>Tree Pruning</h3>
+                                <span class="service-price">From $199</span>
+                            </div>
+                        </div>
+                        <p class="service-description">Professional pruning following Australian Standards AS4373</p>
+                        <ul class="service-features">
+                            <li>Crown thinning & reduction</li>
+                            <li>Deadwood removal</li>
+                            <li>Structural pruning</li>
+                            <li>Vista pruning</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span class="service-icon">🔨</span>
+                            <div class="service-info">
+                                <h3>Stump Grinding</h3>
+                                <span class="service-price">From $149</span>
+                            </div>
+                        </div>
+                        <p class="service-description">Complete stump removal below ground level</p>
+                        <ul class="service-features">
+                            <li>Any size stump removal</li>
+                            <li>Surface root grinding</li>
+                            <li>Site restoration</li>
+                            <li>Multiple stump discounts</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span class="service-icon">🌿</span>
+                            <div class="service-info">
+                                <h3>Tree Trimming</h3>
+                                <span class="service-price">From $149</span>
+                            </div>
+                        </div>
+                        <p class="service-description">Precision trimming for safety and aesthetics</p>
+                        <ul class="service-features">
+                            <li>Powerline clearance</li>
+                            <li>Building clearance</li>
+                            <li>Shape correction</li>
+                            <li>Height reduction</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span class="service-icon">🏠</span>
+                            <div class="service-info">
+                                <h3>Gutter Cleaning</h3>
+                                <span class="service-price">From $129</span>
+                            </div>
+                        </div>
+                        <p class="service-description">Prevent water damage and fire hazards</p>
+                        <ul class="service-features">
+                            <li>Complete debris removal</li>
+                            <li>Downpipe flushing</li>
+                            <li>Roof inspection included</li>
+                            <li>Before/after photos</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span class="service-icon">🌾</span>
+                            <div class="service-info">
+                                <h3>Hedge Services</h3>
+                                <span class="service-price">From $99</span>
+                            </div>
+                        </div>
+                        <p class="service-description">Expert hedge trimming and shaping</p>
+                        <ul class="service-features">
+                            <li>Formal hedge shaping</li>
+                            <li>Privacy screen maintenance</li>
+                            <li>Height reduction</li>
+                            <li>Hedge removal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="about" class="stats">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why Choose Abby's Tree Services?</h2>
+                    <p>Sydney's most trusted tree care professionals since 2009</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">10,000+</span>
+                        <span class="stat-label">Trees Serviced</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2,500+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Emergency Service</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Our Customers Say</h2>
+                    <p>Real reviews from satisfied clients</p>
+                </div>
+
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Fantastic service! They removed a huge dangerous tree hanging over our house. Professional, fast, and cleaned up everything. Highly recommend!"</p>
+                        <p class="testimonial-author">- Sarah Mitchell, Bondi</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Best price we could find and the work was exceptional. The team was professional and efficient. Will definitely use again!"</p>
+                        <p class="testimonial-author">- John Davidson, Parramatta</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Emergency call at 2AM after a storm. They were here within 30 minutes and removed the fallen tree. Absolute lifesavers!"</p>
+                        <p class="testimonial-author">- Lisa Kim, North Shore</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get Your Free Quote</h2>
+                    <p>Quick response guaranteed - usually within 30 minutes</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label>Your Name *</label>
+                                <input type="text" class="form-control" name="from_name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" class="form-control" name="phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Email Address *</label>
+                                <input type="email" class="form-control" name="from_email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Service Required</label>
+                                <select class="form-control" name="service">
+                                    <option value="">Select Service...</option>
+                                    <option value="emergency">🚨 EMERGENCY SERVICE</option>
+                                    <option value="tree-removal">Tree Removal</option>
+                                    <option value="tree-pruning">Tree Pruning</option>
+                                    <option value="tree-trimming">Tree Trimming</option>
+                                    <option value="stump-grinding">Stump Grinding</option>
+                                    <option value="gutter-cleaning">Gutter Cleaning</option>
+                                    <option value="hedge-services">Hedge Services</option>
+                                    <option value="multiple">Multiple Services</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Message *</label>
+                                <textarea class="form-control" name="message" required placeholder="Please describe your tree service needs..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                Send Quote Request →
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3>Direct Contact</h3>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <div>
+                                <strong>24/7 Hotline:</strong><br>
+                                <a href="tel:0431906191">0431 906 191</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span>✉️</span>
+                            <div>
+                                <strong>Email:</strong><br>
+                                <a href="mailto:abbystreeservices@gmail.com">abbystreeservices@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <div>
+                                <strong>Service Areas:</strong><br>
+                                All Sydney Metro & Wollongong
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span>⏰</span>
+                            <div>
+                                <strong>Hours:</strong><br>
+                                Regular: 7AM-6PM (Mon-Sat)<br>
+                                Emergency: 24/7 Available
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span>💳</span>
+                            <div>
+                                <strong>Payment Methods:</strong><br>
+                                Cash, Card, Bank Transfer
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Abby's Tree Services</h3>
+                    <p style="margin: 15px 0; color: #BDC3C7;">
+                        Professional tree care services in Sydney and Wollongong. 
+                        Available 24/7 for emergency tree services.
+                    </p>
+                    <p style="font-size: 20px; color: #2ECC71; font-weight: bold;">
+                        📞 0431 906 191
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Tree Removal</a></li>
+                        <li><a href="#services">Tree Pruning</a></li>
+                        <li><a href="#services">Stump Grinding</a></li>
+                        <li><a href="#services">Emergency Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Service Areas</h3>
+                    <ul class="footer-links">
+                        <li><a href="#contact">Sydney CBD</a></li>
+                        <li><a href="#contact">North Shore</a></li>
+                        <li><a href="#contact">Eastern Suburbs</a></li>
+                        <li><a href="#contact">Wollongong</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="tel:0431906191">Emergency Call</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Abby's Tree Services. All Rights Reserved.</p>
+                <p>ABN: 12 345 678 901 | Fully Licensed & Insured</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <a href="tel:0431906191" class="fab fab-call">📞</a>
+        <a href="https://wa.me/61431906191" class="fab fab-whatsapp">💬</a>
+        <a href="#home" class="fab fab-top" id="scrollTop">↑</a>
+    </div>
+
+    <!-- Bottom CTA for Mobile -->
+    <div class="bottom-cta">
+        <span class="bottom-cta-text">Need Help?</span>
+        <a href="tel:0431906191" class="bottom-cta-btn">
+            📞 Call Now
+        </a>
+    </div>
+
+    <script>
+        // Create sawdust particles
+        function createSawdust() {
+            const container = document.getElementById('sawdust-container');
+            if (container) {
+                for (let i = 0; i < 20; i++) {
+                    const sawdust = document.createElement('div');
+                    sawdust.className = 'sawdust';
+                    sawdust.style.left = Math.random() * 100 + '%';
+                    sawdust.style.animationDelay = Math.random() * 8 + 's';
+                    sawdust.style.animationDuration = (Math.random() * 3 + 8) + 's';
+                    container.appendChild(sawdust);
+                }
+            }
+        }
+        createSawdust();
+
+        // Toggle mobile menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.menu-btn');
+            menu.classList.remove('active');
+            btn.classList.remove('active');
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.getElementById('scrollTop');
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('show');
+            } else {
+                scrollTop.classList.remove('show');
+            }
+
+            // Hide bottom CTA when scrolling down (mobile only)
+            if (window.innerWidth <= 767) {
+                let scrollPos = window.scrollY;
+                const bottomCta = document.querySelector('.bottom-cta');
+                if (bottomCta) {
+                    if (scrollPos > lastScrollPos && scrollPos > 100) {
+                        bottomCta.style.transform = 'translateY(100%)';
+                    } else {
+                        bottomCta.style.transform = 'translateY(0)';
+                    }
+                    lastScrollPos = scrollPos;
+                }
+            }
+        });
+
+        let lastScrollPos = 0;
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '⏳ Sending...';
+            submitBtn.disabled = true;
+            
+            // EmailJS configuration
+            const serviceID = 'service_t4m0z9g';
+            const templateID = 'template_msgvedf';
+            
+            // Send email
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    // Success
+                    alert('✅ Thank you! We\'ll call you within 30 minutes during business hours.');
+                    this.reset();
+                    submitBtn.innerHTML = '✓ Sent Successfully';
+                    submitBtn.style.background = 'linear-gradient(135deg, #2ECC71, #27AE60)';
+                    
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '';
+                    }, 3000);
+                }, (error) => {
+                    // Error
+                    console.error('Error:', error);
+                    alert('Please call us directly at 0431 906 191');
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 120;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add transition to bottom CTA
+        const bottomCta = document.querySelector('.bottom-cta');
+        if (bottomCta) {
+            bottomCta.style.transition = 'transform 0.3s ease';
+        }
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.service-card, .stat-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s, transform 0.6s';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
